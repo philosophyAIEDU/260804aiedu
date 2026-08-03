@@ -1,0 +1,14 @@
+# 에디터·도구 로컬 설정
+.claude/settings.local.json
+
+# OS 생성 파일
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 오피스 임시 파일
+~$*
+
+# 수업 중 저장된 학생 결과물은 저장소에 올리지 않습니다
+c_layer_artwork_*.mp4
+c_layer_artwork_*.webm

@@ -1,0 +1,26 @@
+# 빌드 과정 없는 정적 사이트입니다. 저장소 루트를 그대로 배포합니다.
+[build]
+  publish = "."
+
+# 웹앱을 전체화면 태블릿 도구로 쓰기 위한 헤더입니다.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+
+# 최신 버전으로 가는 짧은 주소 (수업 중 태블릿 주소창에 입력하기 쉽게)
+[[redirects]]
+  from = "/v3"
+  to = "/prototype/v3-stamp-shapes.html"
+  status = 302
+
+[[redirects]]
+  from = "/v2"
+  to = "/prototype/v2-music-picker.html"
+  status = 302
+
+[[redirects]]
+  from = "/v1"
+  to = "/prototype/v1-prototype.html"
+  status = 302
