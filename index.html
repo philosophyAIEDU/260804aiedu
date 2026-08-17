@@ -3,52 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>C층위 AI 감각 창작 수업 — 도구 모음</title>
+<title>AI 감각 창작 수업 — 도구 모음</title>
 <style>
+  :root{
+    --sky-top:#bfe3f7;
+    --sky-bottom:#e8f5fd;
+    --ink:#2d4a5c;
+    --ink-soft:#5b7a8c;
+    --card-apricot:#ffe6cc;
+    --card-apricot-edge:#f2c49a;
+    --card-blue:#d3e8f9;
+    --card-blue-edge:#a5cbe8;
+    --card-mint:#d5eddc;
+    --card-mint-edge:#a8d5b8;
+    --panel:#fbfdff;
+    --lavender:#e6e3f7;
+    --lavender-edge:#b8b0e0;
+  }
   *{box-sizing:border-box;}
-  body{margin:0;background:#15151f;color:#fff;font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;
-       padding:32px 20px 60px;line-height:1.6;}
-  .wrap{max-width:860px;margin:0 auto;}
-  h1{font-size:26px;margin:0 0 6px;}
-  .sub{color:#9a9aab;font-size:15px;margin:0 0 32px;}
-  h2{font-size:17px;color:#cfcfe0;margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid #2e2e3f;}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
-  a.card{display:block;background:#222234;border:2px solid #33334a;border-radius:16px;
-         padding:20px;text-decoration:none;color:#fff;transition:border-color .15s,transform .15s;}
-  a.card:hover,a.card:focus{border-color:#ffd24a;transform:translateY(-2px);}
-  a.card .ver{font-size:12px;letter-spacing:1px;color:#ffd24a;font-weight:bold;}
-  a.card .name{font-size:19px;font-weight:bold;margin:6px 0 8px;}
-  a.card .desc{font-size:14px;color:#a9a9bd;line-height:1.5;}
-  a.card.latest{border-color:#ffd24a;background:#2a2a1f;}
-  a.card.latest .ver::after{content:" · 최신";}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:linear-gradient(180deg,var(--sky-top) 0%,var(--sky-bottom) 55%,var(--sky-bottom) 100%);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;
+    padding:44px 20px 70px;
+    line-height:1.65;
+  }
+  .wrap{max-width:880px;margin:0 auto;}
+
+  h1{font-size:30px;margin:0 0 8px;letter-spacing:-.5px;}
+  .sub{color:var(--ink-soft);font-size:15px;margin:0 0 40px;}
+
+  h2{font-size:17px;color:var(--ink);margin:40px 0 16px;display:flex;align-items:center;gap:10px;}
+  h2::after{content:"";flex:1;height:2px;background:rgba(45,74,92,.13);border-radius:2px;}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+  a.card{
+    display:block;padding:22px;border-radius:20px;text-decoration:none;color:var(--ink);
+    border:2px solid transparent;
+    box-shadow:0 3px 10px rgba(45,74,92,.09);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  a.card:hover,a.card:focus{transform:translateY(-3px);box-shadow:0 8px 20px rgba(45,74,92,.16);outline:none;}
+  a.card:focus-visible{border-color:var(--ink);}
+  a.card .ver{font-size:12px;letter-spacing:1.5px;font-weight:700;opacity:.75;}
+  a.card .name{font-size:20px;font-weight:700;margin:6px 0 9px;}
+  a.card .desc{font-size:14px;color:#4a6779;line-height:1.55;}
+
+  a.c-v3{background:var(--card-apricot);border-color:var(--card-apricot-edge);}
+  a.c-v2{background:var(--card-blue);border-color:var(--card-blue-edge);}
+  a.c-v1{background:var(--card-mint);border-color:var(--card-mint-edge);}
+  .c-v3 .ver::after{content:" · 최신";}
+
+  .note{
+    background:var(--lavender);border:2px solid var(--lavender-edge);
+    border-radius:18px;padding:18px 22px;margin:28px 0 0;font-size:14px;color:#4b4570;
+  }
+  .note strong{color:#332c5c;}
+
+  .panel{
+    background:var(--panel);border:2px solid #cfe3ef;border-radius:18px;
+    padding:6px 22px;box-shadow:0 3px 10px rgba(45,74,92,.07);
+  }
   ul.files{list-style:none;padding:0;margin:0;}
-  ul.files li{padding:10px 0;border-bottom:1px solid #24243a;font-size:15px;}
-  ul.files a{color:#8fb8ff;}
-  .note{background:#1d1d2c;border-left:4px solid #6fa8dc;border-radius:0 10px 10px 0;
-        padding:14px 18px;margin:24px 0;font-size:14px;color:#b8b8cc;}
-  .note strong{color:#fff;}
-  footer{margin-top:48px;color:#66667a;font-size:13px;}
+  ul.files li{padding:14px 0;font-size:15px;}
+  ul.files a{color:#2f7fb5;font-weight:600;}
+  ul.files .meta{color:var(--ink-soft);font-weight:400;}
+
+  footer{margin-top:48px;color:var(--ink-soft);font-size:13px;text-align:center;}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <h1>C층위(중도중복장애) AI 감각 창작 수업</h1>
+  <h1>AI 감각 창작 수업</h1>
   <p class="sub">태블릿 + 스위치 기반 감각 창작 도구 · 특수교육 재활학교</p>
 
   <h2>창작 도구 열기</h2>
   <div class="cards">
-    <a class="card latest" href="prototype/v3-stamp-shapes.html">
+    <a class="card c-v3" href="prototype/v3-stamp-shapes.html">
       <div class="ver">v3</div>
       <div class="name">도장 모양 수정판</div>
       <div class="desc">악기(피아노·첼로·클라리넷) → 도장 모양(동그라미·별·꽃·하트)을 차례로 고르고, 터치 궤적도 고른 모양으로 찍힙니다.</div>
     </a>
-    <a class="card" href="prototype/v2-music-picker.html">
+    <a class="card c-v2" href="prototype/v2-music-picker.html">
       <div class="ver">v2</div>
       <div class="name">음악 선택판</div>
       <div class="desc">스캔 방식으로 배경 음악과 도장 모양을 선택합니다. 터치 궤적은 부드러운 번짐 형태입니다.</div>
     </a>
-    <a class="card" href="prototype/v1-prototype.html">
+    <a class="card c-v1" href="prototype/v1-prototype.html">
       <div class="ver">v1</div>
       <div class="name">최초 프로토타입</div>
       <div class="desc">배경 영상 위에 터치·스위치로 흔적을 남기고 녹화합니다. 선택 화면 없이 바로 시작합니다.</div>
@@ -62,9 +107,14 @@
   </div>
 
   <h2>수업 설계안</h2>
-  <ul class="files">
-    <li><a href="docs/C%EC%B8%B5%EC%9C%84_%ED%83%9C%EB%B8%94%EB%A6%BF%EA%B8%B0%EB%B0%98_AI%EA%B0%90%EA%B0%81%EC%B0%BD%EC%9E%91%EC%88%98%EC%97%85_%EC%84%A4%EA%B3%84%EC%95%88.pdf">설계안 PDF 열기</a> — 40분 수업 흐름, 안전 확인 사항, 관찰 기록지</li>
-  </ul>
+  <div class="panel">
+    <ul class="files">
+      <li>
+        <a href="docs/lesson-plan.pdf">설계안 PDF 열기</a>
+        <span class="meta"> — 40분 수업 흐름, 안전 확인 사항, 관찰 기록지</span>
+      </li>
+    </ul>
+  </div>
 
   <footer>
     도구 사용법과 각 버전의 차이는 저장소의 README.md에 정리되어 있습니다.
